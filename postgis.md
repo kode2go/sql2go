@@ -57,6 +57,7 @@ FROM ( VALUES ('LINESTRING(0 0, 1 1, 2 2)'::geometry) ) AS foo;
 # Get Values of Points
 
 Note ST_AsText does not work with ST_X... :
+Note - depending on version ::geometry may show error, but it can also be removed
 
 ```sql
 SELECT name, 
@@ -76,6 +77,9 @@ SELECT name,
 					  
 FROM geometries2
 ```
+
+![image](https://user-images.githubusercontent.com/29664888/171195418-2134fed8-04e1-4b59-9f52-ee5c4bec5908.png)
+
 
 # Delete Entry
 ```sql
