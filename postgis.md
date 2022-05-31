@@ -38,5 +38,34 @@ SELECT ST_AsText(
 FROM ( VALUES ('LINESTRING(0 0, 1 1, 2 2)'::geometry) ) AS foo;
 ```
 
+# Get Values of Points
+
+Note ST_AsText does not work with ST_X... :
+
+```sql
+SELECT name, 
+   ST_X(ST_PointN(
+	  geom::geometry,
+	  generate_series(1, ST_NPoints(geom))
+   )) AS Long,  ST_Y(ST_PointN(
+	  geom::geometry,
+	  generate_series(1, ST_NPoints(geom))
+   )) AS Lat, ST_Z(ST_PointN(
+	  geom::geometry,
+	  generate_series(1, ST_NPoints(geom))
+   )) AS Alt, ST_M(ST_PointN(
+	  geom::geometry,
+	  generate_series(1, ST_NPoints(geom))
+   )) AS TimeZone
+					  
+FROM geometries2
+```
+
+# Delete Entry
+```sql
+DELETE FROM public.geometries2
+	WHERE name='A1';
+```
+
 
 
