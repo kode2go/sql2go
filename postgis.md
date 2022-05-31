@@ -1,14 +1,28 @@
 # Installation
 
+Install postgis
+
+https://postgis.net/install/
+
+drop extenstion:
+https://www.postgresql.org/docs/current/sql-dropextension.html
+
 # Get PostGIS Version
 ```sql
 SELECT PostGIS_version();
 ```
 
 # Create Table
+
+http://postgis.net/workshops/postgis-intro/geometries.html
+
 ```sql
 CREATE TABLE geometries2 (name varchar, geom geometry);
 ```
+
+# Linestring
+
+https://postgis.net/workshops/postgis-intro/3d.html
 
 # Add Values
 
@@ -23,6 +37,8 @@ INSERT INTO geometries2 VALUES
 ```
 
 # Read Values
+
+https://postgis.net/docs/ST_AsText.html
 
 ```sql
 SELECT name,ST_AsText(geom) FROM geometries2
